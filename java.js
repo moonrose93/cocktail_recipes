@@ -3,6 +3,8 @@ const inputEl = document.getElementById("input");
 const cocktailName = document.getElementById("cocktail-name");
 const cocktailImage = document.getElementById("cockatil-image");
 const instructions = document.getElementById("instructions");
+const imageContainer = document.getElementById("container");
+const ingridients = document.getElementById("ingredients");
 
 
 
@@ -19,12 +21,16 @@ const options = {
 
 
  btnEl.addEventListener("click", async () =>{
-
-    const input = inputEl.value;
+    
     const response = await fetch(apiUrl,options);
     const data = await response.json()
     cocktailName.innerHTML = data[0].name
     instructions.innerHTML= data[0].instructions
+    ingridients.innerHTML = data[0].ingredients
+
+
+    
+
 
 
 
