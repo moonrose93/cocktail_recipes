@@ -90,17 +90,33 @@ body{
 @media(max-width: 480px ){
    
 body{
-    background-size: auto;
+    background-size: cover;
+    background-position: center;
 }
 
-.container{
+#ingredients{
+    background: rgb(243, 243, 195);
+    color: rgb(3, 43, 3);
+    padding: 5px;
     
-    padding: 80px 5px;
+}
+
+#instructions{
+    background: rgb(243, 243, 195);
+    color: rgb(3, 43, 3);
+    padding: 5px;
+}
+
+
+.container{
+   display: table-column;
+    padding: 10px 5px;
     width: 100%;
     max-width: 90%;
-    margin-top: 50px;
-    height: 100%;
-    max-height: 90%;
+    margin-top: 20px;
+    position: absolute;
+    width: 100%;
+    overflow-y: scroll;
 }
 
 .cocktail-image{
@@ -108,6 +124,8 @@ body{
     max-width: 50%;
     border-radius: 40px;
     margin-bottom: 0px;
+    position: relative;
+    right: 50px;
 }
 
 
@@ -115,8 +133,7 @@ body{
 .div{
     width: 100%;
     max-width: 70%;
-    display: flex;
-    flex-direction: column;
+    display: grid;
     
     margin: 0;
     padding: 20px;
@@ -124,8 +141,9 @@ body{
 
 
 .j{
-    padding: 30px;
-    margin-bottom: 80px;
+    padding: 10px 15px 15px 15px;
+    margin-bottom: 0
+
 }
 
 .input{
@@ -143,8 +161,8 @@ body{
 
 .cocktail-recipes{
     font-size: 1.5rem;
-    margin-top: 80px;
-    padding-top: 60px;
+    margin-top: 0px;
+    padding-top: 40px;
 
 }
 
