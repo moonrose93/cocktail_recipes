@@ -22,14 +22,23 @@ btnEl.addEventListener("click", async () => {
   }
 
   try {
+    const response = await fetch(apiUrl + encodeURIComponent(cocktailNameValue), options); /*
+    This line is making a network request using the fetch() function. It sends a request to the specified apiUrl, and it appends the cocktailNameValue to the URL by using encodeURIComponent() to properly handle any special characters in the cocktail name.
     const response = await fetch(apiUrl + encodeURIComponent(cocktailNameValue), options);
+    The fetch() function returns a Promise that resolves to the response object containing the result of the network request. By using the await keyword, the code is waiting for the Promise to be resolved, and the response object will be assigned to the response variable.
+    const data = await response.json();
+    The json() method is used to parse the response body as JSON. Again, the await keyword is used to wait for the JSON parsing to be completed, and the parsed data will be assigned to the data variable.
+    In summary, the code fetches data from an API using a URL constructed with apiUrl and cocktailNameValue. It then parses the response as JSON and stores the resulting data in the data variable. Note that the code snippet you provided must be inside an async function since it uses await.*/
+    
     const data = await response.json();
 
-    if (data.length > 0) {
-      const firstCocktail = data[0];
+    console.log(data);
+
+    if (data.length > 0) { //This condition checks if the data array has at least one element, meaning there is a valid response with at least one cocktail.//
+      const firstCocktail = data[0]; //If there is data available, the first cocktail object from the data array is assigned to the variable firstCocktail.//
       cocktailName.innerHTML = firstCocktail.name;
       instructions.innerHTML = firstCocktail.instructions;
-      ingredients.innerHTML = "Ingredients: " + firstCocktail.ingredients.join(", ");
+      ingredients.innerHTML = "Ingredients: " + firstCocktail.ingredients.join(", ");//The join() method concatenates the elements of the ingredients array with commas, creating a formatted list of ingredients.
       
     } else {
       cocktailName.innerHTML = "Cocktail not found";
